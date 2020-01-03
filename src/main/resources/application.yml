@@ -1,0 +1,14 @@
+
+server:
+  port: 8088
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://122.51.73.146/exam
+    username: root
+    password: zzq123456
+
+mybatis:
+  type-aliases-package: com.zzq.exam_stu_server.domain.entity
+  mapper-locations: classpath:mybatis/mapper/*.xml

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzq.exam_stu_server.domain.dao.TestTitleMapper">
+  <resultMap id="BaseResultMap" type="com.zzq.exam_stu_server.domain.entity.TestTitle">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="option_1" jdbcType="VARCHAR" property="option1" />
+    <result column="option_2" jdbcType="VARCHAR" property="option2" />
+    <result column="option_3" jdbcType="VARCHAR" property="option3" />
+    <result column="option_4" jdbcType="VARCHAR" property="option4" />
+    <result column="answer" jdbcType="VARCHAR" property="answer" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, `type`, title, option_1, option_2, option_3, option_4, answer
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_title
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_title
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="com.zzq.exam_stu_server.domain.entity.TestTitle" useGeneratedKeys="true">
+    insert into test_title (`type`, title, option_1, 
+      option_2, option_3, option_4, 
+      answer)
+    values (#{type,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{option1,jdbcType=VARCHAR}, 
+      #{option2,jdbcType=VARCHAR}, #{option3,jdbcType=VARCHAR}, #{option4,jdbcType=VARCHAR}, 
+      #{answer,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.zzq.exam_stu_server.domain.entity.TestTitle" useGeneratedKeys="true">
+    insert into test_title
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="option1 != null">
+        option_1,
+      </if>
+      <if test="option2 != null">
+        option_2,
+      </if>
+      <if test="option3 != null">
+        option_3,
+      </if>
+      <if test="option4 != null">
+        option_4,
+      </if>
+      <if test="answer != null">
+        answer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="option1 != null">
+        #{option1,jdbcType=VARCHAR},
+      </if>
+      <if test="option2 != null">
+        #{option2,jdbcType=VARCHAR},
+      </if>
+      <if test="option3 != null">
+        #{option3,jdbcType=VARCHAR},
+      </if>
+      <if test="option4 != null">
+        #{option4,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzq.exam_stu_server.domain.entity.TestTitle">
+    update test_title
+    <set>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="option1 != null">
+        option_1 = #{option1,jdbcType=VARCHAR},
+      </if>
+      <if test="option2 != null">
+        option_2 = #{option2,jdbcType=VARCHAR},
+      </if>
+      <if test="option3 != null">
+        option_3 = #{option3,jdbcType=VARCHAR},
+      </if>
+      <if test="option4 != null">
+        option_4 = #{option4,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        answer = #{answer,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzq.exam_stu_server.domain.entity.TestTitle">
+    update test_title
+    set `type` = #{type,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      option_1 = #{option1,jdbcType=VARCHAR},
+      option_2 = #{option2,jdbcType=VARCHAR},
+      option_3 = #{option3,jdbcType=VARCHAR},
+      option_4 = #{option4,jdbcType=VARCHAR},
+      answer = #{answer,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
