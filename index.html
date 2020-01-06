@@ -121,8 +121,8 @@
 </div>
 
 <script>
-    // var url = 'http://localhost:8088';
-    var url = 'http://122.51.73.146:8088';
+    var url = 'http://localhost:8088';
+    // var url = 'http://122.51.73.146:8088';
     var login = new Vue({
         el: '#Login-frame',
         data: {
@@ -241,11 +241,16 @@
                     isDone = confirm("题目完成度没有100%，确认结束本次考试吗");
                 }
                 if (isDone){
+                    // 答案加 []
+                    // for (let i = 0; i < this.answer.length; i++) {
+                    //     this.answer[i] = '['+this.answer[i]+']'
+                    // }
                     axios.post(url + '/submitExam',{
                         examId: this.examId,
                         username: login.username,
                         answer: this.answer,
                     }).then(res=>{
+                        console.log(this.answer);
                         console.log(res);
                     })
                 }

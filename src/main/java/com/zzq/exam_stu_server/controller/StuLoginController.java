@@ -1,6 +1,7 @@
 package com.zzq.exam_stu_server.controller;
 
 import com.zzq.exam_stu_server.domain.entity.User;
+import com.zzq.exam_stu_server.service.AnswerService;
 import com.zzq.exam_stu_server.service.ExamService;
 import com.zzq.exam_stu_server.service.LoginService;
 import com.zzq.exam_stu_server.service.RegisterService;
@@ -17,6 +18,8 @@ public class StuLoginController {
     private RegisterService registerService;
     @Autowired
     private ExamService examService;
+    @Autowired
+    private AnswerService answerService;
 
     @RequestMapping("login")
     public JsonBean getExamId(String username, String password){
@@ -35,8 +38,6 @@ public class StuLoginController {
 
     @RequestMapping(value = "submitExam",method = RequestMethod.POST)
     public JsonBean submitExam(@RequestBody String json){
-        // TODO 给试卷模块发送答案
-        System.out.println(json);
-        return null;
+        return answerService.getAnswer(json);
     }
 }
