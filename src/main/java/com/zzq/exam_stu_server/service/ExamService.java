@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -34,6 +36,18 @@ public class ExamService {
             testTitle.setAnswer(null);
             testTitleList.add(testTitle);
         }
+
+        // 按类型排序 1.选择 2.判断 3.简答
+        Collections.sort(testTitleList, new Comparator<TestTitle>() {
+            @Override
+            public int compare(TestTitle o1, TestTitle o2) {
+                int i = o1.getType() - o2.getType();
+                if (i == 0){
+                    return o1.getType()-o2.getType();
+                }
+                return i;
+            }
+        });
 
         ExamDTO examDTO = ExamDTO.builder()
                 .id(exam.getId())

@@ -35,6 +35,7 @@ public class StuLoginController {
 
     @RequestMapping(value = "submitExam",method = RequestMethod.POST)
     public JsonBean submitExam(@RequestBody String json){
+        // TODO 给试卷模块发送答案
         System.out.println(json);
         return null;
     }

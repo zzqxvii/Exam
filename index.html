@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Exam</title>
     <!--  Element UI 样式  -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <style>
@@ -26,6 +26,7 @@
         }
         .el-card__body{
             padding: 12px 20px;
+            font-size: 15px;
         }
     </style>
     <!--  Vue  -->
@@ -63,16 +64,16 @@
     <div id="Exam-frame" v-if="showExam">
         <div>
             <el-row :gutter="0">
-                <el-col :span="4">
+                <el-col :span="5">
                     <el-card shadow="always"><i class="el-icon-user"></i>考试人：{{ login.username }}</el-card>
                 </el-col>
                 <el-col :span="3.5">
                     <el-card shadow="always"><i class="el-icon-tickets"></i>考试ID：{{ examId }}</el-card>
                 </el-col>
-                <el-col :span="6">
+                <el-col :span="5.5">
                     <el-card shadow="always"><i class="el-icon-monitor"></i>考试模式：{{ pattern }}</el-card>
                 </el-col>
-                <el-col :span="5">
+                <el-col :span="4.5">
                     <el-card shadow="always"><i class="el-icon-view"></i>是否开启监控：{{ monitor }}</el-card>
                 </el-col>
                 <el-col :span="5.5">
@@ -127,7 +128,7 @@
         data: {
             showLogin: true,
             username: '',
-            password: '',
+            password: ''
         },
         methods: {
             goExam: function () {
