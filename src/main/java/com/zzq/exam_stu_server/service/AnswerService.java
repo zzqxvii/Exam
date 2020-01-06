@@ -30,11 +30,9 @@ public class AnswerService {
                 .answer(answer)
                 .enclosure(null)
                 .build();
-        examItemsMapper.insertSelective(examItems);
-
-        System.out.println(answer);
-        System.out.println(examItems);
-
-        return new JsonBean(0,"success",null);
+        if(examItemsMapper.insertSelective(examItems) < 0){
+            return new JsonBean(-1,"Error：提交失败！",null);
+        }
+        return new JsonBean(0,"考试完成！",null);
     }
 }

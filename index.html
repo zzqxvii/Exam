@@ -252,6 +252,12 @@
                     }).then(res=>{
                         console.log(this.answer);
                         console.log(res);
+                        if (res.data.code === 0){
+                            alert(res.data.msg)
+                        }
+                        else if (res.data.code === -1){
+                            alert(res.data.msg)
+                        }
                     })
                 }
             }
