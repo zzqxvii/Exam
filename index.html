@@ -97,7 +97,11 @@
                 <el-radio type="radio" v-model="answer[index]" label="2" />2. {{ item.option2 }}</el-radio>
             </p>
             <p v-else-if="item.type === 3">
-                <el-input type="textarea" autosize v-model="answer[index]"></el-input>
+                <el-input v-model="answer[index]" clearable></el-input>
+            </p>
+            <p v-else-if="item.type === 4">
+                <el-input type="textarea" :autosize="{minRows: 2,maxRows: 10}"
+                          maxlength="500" show-word-limit v-model="answer[index]"></el-input>
             </p>
         </div>
         <br/>
@@ -209,7 +213,9 @@
                 for({} in this.answer) {
                     j++;
                 }
-                return 100*j/this.items.length
+                // parseFloat(num) 去小数后零
+                // num.toFixed(x) 保留x位小数
+                return parseFloat((100*j/this.items.length).toFixed(1))
             }
         },
         methods: {

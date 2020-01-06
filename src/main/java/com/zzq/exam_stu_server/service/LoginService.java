@@ -17,7 +17,7 @@ public class LoginService {
         if (mapper.selectByUsername(username) == null) return new JsonBean(-1,"用户不存在",null);
         if (mapper.selectByUsername(username).getPassword().equals(password)) {
             // TODO  data：试卷ID
-            return new JsonBean(0, "登录成功", 1);
+            return new JsonBean(0, "登录成功", 3);
         }
         else
             return new JsonBean(-1,"密码错误",null);
