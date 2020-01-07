@@ -37,7 +37,7 @@ public class ExamService {
             testTitleList.add(testTitle);
         }
 
-        // 按类型排序 1.选择 2.判断 3.简答
+        // 按类型排序 1.选择 2.判断 3.填空 4.简答
         Collections.sort(testTitleList, new Comparator<TestTitle>() {
             @Override
             public int compare(TestTitle o1, TestTitle o2) {

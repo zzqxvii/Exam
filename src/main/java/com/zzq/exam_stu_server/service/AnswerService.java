@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.zzq.exam_stu_server.domain.dao.ExamItemsMapper;
 import com.zzq.exam_stu_server.domain.dao.UserMapper;
 import com.zzq.exam_stu_server.domain.entity.ExamItems;
-import com.zzq.exam_stu_server.domain.entity.User;
 import com.zzq.exam_stu_server.util.JsonBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +27,7 @@ public class AnswerService {
                 .examId(examId)
                 .userId(userMapper.selectByUsername(username).getId())
                 .answer(answer)
+                // TODO 接收附件
                 .enclosure(null)
                 .build();
         if(examItemsMapper.insertSelective(examItems) < 0){
