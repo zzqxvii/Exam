@@ -18,7 +18,7 @@
     <div id="Login-frame" v-if="showLogin">
         <p>用户名：<el-input v-model="username" placeholder="请输入用户名"></el-input></p>
         <p>密 码：<el-input v-model="password" show-password placeholder="请输入密码"></el-input></p>
-        <p>
+        <p class="Placeholder">
             <el-button @click="goExam" type="success">登录</el-button>
             <a>没有账号？去</a>
             <el-button @click="goRegister" type="primary">注册</el-button>
@@ -30,7 +30,7 @@
         <p>密 码：<el-input v-model="password" placeholder="请输入密码"></el-input></p>
         <p>确认密码：<el-input v-model="repwd" placeholder="确认密码"></el-input></p>
         <p>手机号：<el-input v-model="tel" placeholder="请输入手机号"></el-input></p>
-        <p>
+        <p class="Placeholder">
             <el-button @click="register" type="primary">注册</el-button>
             <a>已有账号？去</a>
             <el-button @click="goLogin" type="success">登录</el-button>
