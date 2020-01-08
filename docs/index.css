@@ -1,0 +1,26 @@
+*{
+    font-family: "微软雅黑";
+}
+#Login-frame,#Register-frame{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    width: 300px;
+    padding: 50px 100px;
+    margin: 200px auto;
+}
+#Exam-frame{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    padding: 15px;
+    width: 900px;
+    min-height: 1200px;
+    margin: 15px auto;
+}
+#Register-frame a,#Login-frame a{
+    font-size: 14px;
+}
+.Placeholder{
+    padding: 10px;
+}
+.el-card__body{
+    padding: 12px 20px;
+    font-size: 15px;
+}
