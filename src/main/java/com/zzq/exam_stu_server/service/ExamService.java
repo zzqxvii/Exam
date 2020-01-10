@@ -57,6 +57,6 @@ public class ExamService {
                 .testTitleList(testTitleList)
                 .build();
 
-        return new JsonBean(0,"",examDTO);
+        return new JsonBean(0,"success",examDTO);
     }
 }

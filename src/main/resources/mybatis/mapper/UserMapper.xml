@@ -6,7 +6,7 @@
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="role" jdbcType="INTEGER" property="role" />
-    <result column="tel" jdbcType="INTEGER" property="tel" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
   </resultMap>
   <sql id="Base_Column_List">
     Id, username, `password`, `role`, tel
@@ -33,7 +33,7 @@
     insert into user (username, `password`, `role`, 
       tel)
     values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, 
-      #{tel,jdbcType=INTEGER})
+      #{tel,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.zzq.exam_stu_server.domain.entity.User" useGeneratedKeys="true">
     insert into user
@@ -62,7 +62,7 @@
         #{role,jdbcType=INTEGER},
       </if>
       <if test="tel != null">
-        #{tel,jdbcType=INTEGER},
+        #{tel,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -79,7 +79,7 @@
         `role` = #{role,jdbcType=INTEGER},
       </if>
       <if test="tel != null">
-        tel = #{tel,jdbcType=INTEGER},
+        tel = #{tel,jdbcType=VARCHAR},
       </if>
     </set>
     where Id = #{id,jdbcType=INTEGER}
@@ -89,7 +89,7 @@
     set username = #{username,jdbcType=VARCHAR},
       `password` = #{password,jdbcType=VARCHAR},
       `role` = #{role,jdbcType=INTEGER},
-      tel = #{tel,jdbcType=INTEGER}
+      tel = #{tel,jdbcType=VARCHAR}
     where Id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

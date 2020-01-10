@@ -9,6 +9,9 @@ import com.zzq.exam_stu_server.util.JsonBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @RestController
 public class StuLoginController {
 
@@ -22,8 +25,8 @@ public class StuLoginController {
     private AnswerService answerService;
 
     @RequestMapping("login")
-    public JsonBean getExamId(String username, String password){
-        return loginService.login(username,password);
+    public JsonBean getExamId(HttpServletRequest request, String username, String password){
+        return loginService.login(request,username,password);
     }
 
     @RequestMapping("register")

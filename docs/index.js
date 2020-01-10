@@ -1,3 +1,4 @@
+axios.defaults.withCredentials = true;
 // var url = 'http://localhost:8088';
 var url = 'http://122.51.73.146:8088';
 var login = new Vue({
@@ -99,18 +100,22 @@ var exam = new Vue({
                 }
             }).then(res=>{
                 console.log(res);
-                this.examId = res.data.data.id;
-                this.items = res.data.data.testTitleList;
-                this.timeLength = res.data.data.timeLength;
-                if (res.data.data.monitor === 1) {
-                    this.monitor = '是'
-                } else if (res.data.data.monitor === 0){
-                    this.monitor = '否'
-                }
-                if (res.data.data.pattern === 1) {
-                    this.pattern = '限通信模式'
-                } else if (res.data.data.pattern === 2) {
-                    this.pattern = '霸屏模式'
+                if (res.data.code === 0){
+                    this.examId = res.data.data.id;
+                    this.items = res.data.data.testTitleList;
+                    this.timeLength = res.data.data.timeLength;
+                    if (res.data.data.monitor === 1) {
+                        this.monitor = '是'
+                    } else if (res.data.data.monitor === 0){
+                        this.monitor = '否'
+                    }
+                    if (res.data.data.pattern === 1) {
+                        this.pattern = '限通信模式'
+                    } else if (res.data.data.pattern === 2) {
+                        this.pattern = '霸屏模式'
+                    }
+                } else {
+                    alert("Error：获取试卷失败")
                 }
             })
         },

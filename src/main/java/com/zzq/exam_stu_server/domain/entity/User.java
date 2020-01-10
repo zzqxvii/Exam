@@ -25,7 +25,7 @@ public class User implements Serializable {
      */
     private Integer role;
 
-    private Integer tel;
+    private String tel;
 
     private static final long serialVersionUID = 1L;
 }
