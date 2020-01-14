@@ -16,15 +16,13 @@ public class LoginService {
     @Autowired
     private UserMapper mapper;
 
-    public JsonBean login(HttpServletRequest httpServletRequest, String username, String password){
+    public JsonBean login(HttpSession session, String username, String password){
         if (username == null || username.isEmpty()) return new JsonBean(-1,"用户名不能为空",null);
         if (password == null || password.isEmpty()) return new JsonBean(-1,"密码不能为空",null);
         if (mapper.selectByUsername(username) == null) return new JsonBean(-1,"用户不存在",null);
         if (mapper.selectByUsername(username).getPassword().equals(password)) {
-
-            HttpSession session = httpServletRequest.getSession(true);
             session.setAttribute("username",username);
-            log.info("session info[{}]",session.getId());
+            log.info("登录成功=>session[{}]",session.getId());
             // TODO  data：试卷ID
             return new JsonBean(0, "登录成功", 3);
         }

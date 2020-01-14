@@ -1,6 +1,11 @@
 axios.defaults.withCredentials = true;
-// var url = 'http://localhost:8088';
-var url = 'http://122.51.73.146:8088';
+Vue.config.debug = true;
+// axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+// var qs = Qs;
+
+var url = 'http://localhost:8088';
+// var url = 'http://122.51.73.146:8088';
 var login = new Vue({
     el: '#Login-frame',
     data: {
@@ -129,11 +134,15 @@ var exam = new Vue({
                 // for (let i = 0; i < this.answer.length; i++) {
                 //     this.answer[i] = '['+this.answer[i]+']'
                 // }
-                axios.post(url + '/submitExam',{
-                    examId: this.examId,
-                    username: login.username,
-                    answer: this.answer,
-                }).then(res=>{
+                axios.post(url + '/submitExam',
+                    // qs.stringify(
+                        {
+                        examId: this.examId,
+                        username: login.username,
+                        answer: this.answer
+                    }
+                    // )
+                ).then(res=>{
                     console.log(this.answer);
                     console.log(res);
                     if (res.data.code === 0){

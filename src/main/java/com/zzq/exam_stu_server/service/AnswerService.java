@@ -22,6 +22,13 @@ public class AnswerService {
         String answer = jsonObject.get("answer").toString();
         String username = jsonObject.get("username").toString();
         Integer examId = (Integer) jsonObject.get("examId");
+//
+//        System.out.println(jsonObject);
+
+//        String answers = "";
+//        for (String a: answer) {
+//            answers += a;
+//        }
 
         ExamItems examItems = ExamItems.builder()
                 .examId(examId)

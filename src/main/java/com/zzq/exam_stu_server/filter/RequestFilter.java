@@ -6,6 +6,7 @@
 //
 //import javax.servlet.*;
 //import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
 //import javax.servlet.http.HttpSession;
 //import java.io.IOException;
 //
@@ -23,6 +24,7 @@
 //
 //        HttpServletRequest request = (HttpServletRequest)servletRequest;
 //        HttpSession session = request.getSession(true);
+//
 //        log.info("Filter sessionId[{}]",session.getId());
 //        if ( request.getRequestURI().equals("/login") ){
 //            String username = request.getParameter("username");
@@ -32,7 +34,7 @@
 //            filterChain.doFilter(servletRequest, servletResponse);
 //        } else if(session.getAttribute("username") == null){
 //
-//            log.info("非法请求 session[{}]",session.getAttribute("username"));
+//            log.info("非法请求 session[{}][{}]",session.getAttribute("username"),session.getId());
 //        } else {
 //            filterChain.doFilter(servletRequest, servletResponse);
 //        }
