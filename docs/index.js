@@ -4,8 +4,8 @@ Vue.config.debug = true;
 
 // var qs = Qs;
 
-var url = 'http://localhost:8088';
-// var url = 'http://122.51.73.146:8088';
+// var url = 'http://localhost:8088';
+var url = 'http://122.51.73.146:8088';
 var login = new Vue({
     el: '#Login-frame',
     data: {
